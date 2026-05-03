@@ -9,6 +9,8 @@
 2. REQUIREMENTS
 
    a. in Notion
+   <img width="1116" height="366" alt="Screenshot 2026-05-03 at 19 59 28" src="https://github.com/user-attachments/assets/08e9944e-1293-49b8-be1d-3aee08525495" />
+
    
    b. in Jira
    
