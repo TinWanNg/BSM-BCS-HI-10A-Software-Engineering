@@ -12,6 +12,7 @@
    <img width="1116" height="366" alt="Screenshot 2026-05-03 at 19 59 28" src="https://github.com/user-attachments/assets/08e9944e-1293-49b8-be1d-3aee08525495" />
 
    
-   b. in Jira
-   
+   b. in ZenHub
+   <img width="929" height="569" alt="Screenshot 2026-05-06 at 23 53 44" src="https://github.com/user-attachments/assets/2d957a9f-fcdd-4760-833e-caa36bcf3456" />
+
    c. constitution
