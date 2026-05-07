@@ -16,4 +16,7 @@
    <img width="929" height="569" alt="Screenshot 2026-05-06 at 23 53 44" src="https://github.com/user-attachments/assets/2d957a9f-fcdd-4760-833e-caa36bcf3456" />
 
    c. constitution
-   in commit a0f717d806b52479b8b7d8cdf554b009a6c9e002, added to /constitution
+   in commit a0f717d806b52479b8b7d8cdf554b009a6c9e002, added to [/constitution](https://github.com/TinWanNg/BSM-BCS-HI-10A-Software-Engineering/tree/main/constitution)
+
+3. ANALYSIS
+   in commit 753e3bae113145ba0276338990d5c6d00016c4ec, added to [/analysis](https://github.com/TinWanNg/BSM-BCS-HI-10A-Software-Engineering/tree/main/analysis)
