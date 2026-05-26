@@ -20,3 +20,8 @@
 
 3. ANALYSIS
    in commit 753e3bae113145ba0276338990d5c6d00016c4ec, added to [/analysis](https://github.com/TinWanNg/BSM-BCS-HI-10A-Software-Engineering/tree/main/analysis)
+
+4. UML
+- Use case diagram
+- Class diagram
+- Activity diagram
