@@ -16,13 +16,16 @@
    <img width="929" height="569" alt="Screenshot 2026-05-06 at 23 53 44" src="https://github.com/user-attachments/assets/2d957a9f-fcdd-4760-833e-caa36bcf3456" />
 
    c. constitution
-   in commit a0f717d806b52479b8b7d8cdf554b009a6c9e002, added to [/constitution](https://github.com/TinWanNg/BSM-BCS-HI-10A-Software-Engineering/tree/main/constitution)
+   in commit a0f717d806b52479b8b7d8cdf554b009a6c9e002, added to [/02c_constitution](https://github.com/TinWanNg/BSM-BCS-HI-10A-Software-Engineering/tree/main/02c_constitution)
 
 3. ANALYSIS
-   in commit 753e3bae113145ba0276338990d5c6d00016c4ec, added to [/analysis](https://github.com/TinWanNg/BSM-BCS-HI-10A-Software-Engineering/tree/main/analysis)
+   in commit 753e3bae113145ba0276338990d5c6d00016c4ec, added to [/03_analysis](https://github.com/TinWanNg/BSM-BCS-HI-10A-Software-Engineering/tree/main/03_analysis)
 
 4. UML
-all pngs could be found [here](https://github.com/TinWanNg/BSM-BCS-HI-10A-Software-Engineering/tree/main/UML)
+all pngs could be found in [/04_UML](https://github.com/TinWanNg/BSM-BCS-HI-10A-Software-Engineering/tree/main/04_UML)
 - Use case diagram
 - Class diagram
 - Activity diagram
+
+5. DDD
+all pngs could be found in [/05_DDD](https://github.com/TinWanNg/BSM-BCS-HI-10A-Software-Engineering/tree/main/05_DDD)
