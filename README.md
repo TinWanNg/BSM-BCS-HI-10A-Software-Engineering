@@ -30,5 +30,5 @@ all pngs could be found in [/04_UML](https://github.com/TinWanNg/BSM-BCS-HI-10A-
 5. DDD
 all pngs could be found in [/05_DDD](https://github.com/TinWanNg/BSM-BCS-HI-10A-Software-Engineering/tree/main/05_DDD)
 
-5. Clean code development
+6. Clean code development
 all files could be found in [/06_clean_code](https://github.com/TinWanNg/BSM-BCS-HI-10A-Software-Engineering/tree/main/06_clean_code)
