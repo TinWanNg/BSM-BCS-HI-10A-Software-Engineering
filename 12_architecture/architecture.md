@@ -23,6 +23,7 @@ The platform predicts sports match outcomes using machine learning models traine
 - secured data storage
 
 5. Business context
+<img width="954" height="562" alt="Screenshot 2026-06-09 at 13 31 50" src="https://github.com/user-attachments/assets/17d61d12-1dee-45f5-a34a-2d40a9a9e181" />
 
 
 6. Core decisions
