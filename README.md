@@ -27,8 +27,8 @@ all pngs could be found in [/04_UML](https://github.com/TinWanNg/BSM-BCS-HI-10A-
 - Class diagram
 - Activity diagram
 
-5. DDD
-all pngs could be found in [/05_DDD](https://github.com/TinWanNg/BSM-BCS-HI-10A-Software-Engineering/tree/main/05_DDD)
+5. DDD in [/05_DDD](https://github.com/TinWanNg/BSM-BCS-HI-10A-Software-Engineering/tree/main/05_DDD)
 
-6. Clean code development
-all files could be found in [/06_clean_code](https://github.com/TinWanNg/BSM-BCS-HI-10A-Software-Engineering/tree/main/06_clean_code)
+6. Clean code development in [/06_clean_code](https://github.com/TinWanNg/BSM-BCS-HI-10A-Software-Engineering/tree/main/06_clean_code)
+
+10. Continuous delivery implemented in [/10_continuous-delivery/pipeline.yml](https://github.com/TinWanNg/BSM-BCS-HI-10A-Software-Engineering/tree/main/10_continuous-delivery/pipeline.yml)
