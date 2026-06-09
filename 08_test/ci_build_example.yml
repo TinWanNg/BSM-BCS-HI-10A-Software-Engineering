@@ -1,0 +1,23 @@
+# Place this file at .github/workflows/tests.yml in your repository root
+name: Tests
+
+on:
+  push:
+    branches: ["*"]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Run tests
+        working-directory: BSM-BCS-HI-10A-Software-Engineering/08_test
+        run: python -m unittest discover -s tests -v
