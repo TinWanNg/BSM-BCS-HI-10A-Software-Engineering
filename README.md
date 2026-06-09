@@ -31,4 +31,10 @@ all pngs could be found in [/04_UML](https://github.com/TinWanNg/BSM-BCS-HI-10A-
 
 6. Clean code development in [/06_clean_code](https://github.com/TinWanNg/BSM-BCS-HI-10A-Software-Engineering/tree/main/06_clean_code)
 
+7. Refactoring in [/07_refactoring](https://github.com/TinWanNg/BSM-BCS-HI-10A-Software-Engineering/tree/main/07_refactoring)
+
+8. Testing in [/08_test](https://github.com/TinWanNg/BSM-BCS-HI-10A-Software-Engineering/tree/main/08_test)
+
+9. Build
+
 10. Continuous delivery implemented in [/10_continuous-delivery/pipeline.yml](https://github.com/TinWanNg/BSM-BCS-HI-10A-Software-Engineering/tree/main/10_continuous-delivery/pipeline.yml)
