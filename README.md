@@ -38,3 +38,7 @@ all pngs could be found in [/04_UML](https://github.com/TinWanNg/BSM-BCS-HI-10A-
 9. Build
 
 10. Continuous delivery implemented in [/10_continuous-delivery/pipeline.yml](https://github.com/TinWanNg/BSM-BCS-HI-10A-Software-Engineering/tree/main/10_continuous-delivery/pipeline.yml)
+
+11. Metrics
+
+12. [Architecture canvas](https://github.com/TinWanNg/BSM-BCS-HI-10A-Software-Engineering/tree/main/12_architecture/architecture.md)
