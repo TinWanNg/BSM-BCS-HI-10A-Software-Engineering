@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>PetFit - Welcome</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&amp;family=Be+Vietnam+Pro:wght@400;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">tailwind.config = {darkMode: "class", theme: {extend: {colors: {"on-tertiary-fixed-variant": "#7a2f0e", "surface-dim": "#12131b", "surface-container-low": "#1a1b24", "on-background": "#e3e1ee", "inverse-surface": "#e3e1ee", "secondary-fixed": "#e0e0ff", "on-primary-container": "#bcc1ff", "surface-bright": "#383842", primary: "#bdc2ff", "surface-container-high": "#292932", "secondary-container": "#3d4381", "outline-variant": "#454655", surface: "#12131b", "secondary-fixed-dim": "#bdc2ff", "on-secondary": "#232a67", "on-secondary-fixed-variant": "#3b417f", "on-secondary-fixed": "#0c1252", "surface-container": "#1e1f28", "on-error": "#690005", "on-surface": "#e3e1ee", "surface-variant": "#34343d", "on-tertiary-container": "#ffb498", "primary-container": "#2c3bd4", tertiary: "#ffb59a", error: "#ffb4ab", "on-secondary-container": "#adb3fa", "surface-container-highest": "#34343d", "tertiary-fixed-dim": "#ffb59a", "on-surface-variant": "#c5c5d8", "on-error-container": "#ffdad6", "tertiary-fixed": "#ffdbcf", "inverse-primary": "#3b4ae0", "surface-container-lowest": "#0d0e16", "inverse-on-surface": "#2f3039", "on-primary-fixed": "#000767", outline: "#8f8fa1", "on-tertiary-fixed": "#380d00", "primary-fixed-dim": "#bdc2ff", "on-primary-fixed-variant": "#1c2cc9", "surface-tint": "#bdc2ff", "error-container": "#93000a", "primary-fixed": "#e0e0ff", "on-primary": "#0010a2", "on-tertiary": "#5b1b00", background: "#12131b", secondary: "#bdc2ff", "tertiary-container": "#893a19"}, borderRadius: {DEFAULT: "0.25rem", lg: "0.5rem", xl: "0.75rem", full: "9999px"}, spacing: {xs: "4px", unit: "4px", "margin-mobile": "20px", md: "16px", sm: "8px", xl: "32px", gutter: "16px", lg: "24px", "margin-desktop": "40px"}, fontFamily: {"stat-numeric": ["Plus Jakarta Sans"], "headline-lg-mobile": ["Plus Jakarta Sans"], "title-md": ["Plus Jakarta Sans"], "body-lg": ["Be Vietnam Pro"], "body-md": ["Be Vietnam Pro"], "display-lg": ["Plus Jakarta Sans"], "headline-lg": ["Plus Jakarta Sans"], "label-md": ["Be Vietnam Pro"], headline: ["Plus Jakarta Sans"], display: ["Plus Jakarta Sans"], body: ["Be Vietnam Pro"], label: ["Be Vietnam Pro"]}, fontSize: {"stat-numeric": ["24px", {lineHeight: "32px", fontWeight: "700"}], "headline-lg-mobile": ["28px", {lineHeight: "36px", fontWeight: "700"}], "title-md": ["20px", {lineHeight: "28px", fontWeight: "600"}], "body-lg": ["18px", {lineHeight: "28px", fontWeight: "400"}], "body-md": ["16px", {lineHeight: "24px", fontWeight: "400"}], "display-lg": ["40px", {lineHeight: "48px", letterSpacing: "-0.02em", fontWeight: "800"}], "headline-lg": ["32px", {lineHeight: "40px", letterSpacing: "-0.01em", fontWeight: "700"}], "label-md": ["14px", {lineHeight: "20px", letterSpacing: "0.01em", fontWeight: "600"}]}}}};</script>
+<style>
+        .glass-card {
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .pet-platform {
+            filter: drop-shadow(0 20px 30px rgba(0, 107, 95, 0.15));
+        }
+
+        .primary-gradient {
+            background: linear-gradient(135deg, #006b5f 0%, #2dd4bf 100%);
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 10px 20px -5px rgba(0, 107, 95, 0.3);
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-15px) rotate(2deg); }
+        }
+
+        .animate-float {
+            animation: float 4s ease-in-out infinite;
+        }
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background min-h-screen font-body-md selection:bg-primary-container selection:text-on-primary-container overflow-x-hidden">
+<!-- Ambient Background Elements -->
+<div class="fixed inset-0 pointer-events-none -z-10 overflow-hidden">
+<div class="absolute -top-[10%] -left-[5%] w-[40%] h-[40%] rounded-full bg-primary/10 blur-[100px]"></div>
+<div class="absolute bottom-[5%] -right-[10%] w-[50%] h-[50%] rounded-full bg-tertiary/10 blur-[120px]"></div>
+</div>
+<!-- Main Content Canvas -->
+<main class="flex flex-col min-h-screen px-margin-mobile pt-xl pb-lg md:max-w-4xl md:mx-auto">
+<!-- Brand Header -->
+<header class="flex justify-center mb-xl">
+<div class="flex items-center gap-sm">
+<div class="w-10 h-10 bg-primary-container rounded-xl flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-primary text-2xl" style="font-variation-settings: 'FILL' 1;">pets</span>
+</div>
+<h1 class="font-display-lg text-display-lg text-primary tracking-tight">PetFit</h1>
+</div>
+</header>
+<!-- Visual Hero Section -->
+<div class="flex-1 flex flex-col items-center justify-center relative mb-xl">
+<!-- 3D Pet Illustration Placeholder -->
+<div class="relative w-full max-w-sm aspect-square flex items-center justify-center pet-platform">
+<div class="absolute inset-0 bg-secondary-container/10 rounded-full blur-3xl animate-pulse"></div>
+<img alt="Playful 3D dog illustration" class="w-4/5 h-4/5 object-contain z-10 animate-float" data-alt="A friendly and vibrant 3D stylized golden retriever puppy sitting joyfully on a floating digital platform. The puppy wears a high-tech glowing teal fitness collar that pulses gently. The environment is airy and dreamlike, featuring soft pastel clouds and floating geometric health icons like hearts and bones in a modern glassmorphic style. Bright, natural lighting enhances the warm fur texture and the glossy finish of the digital UI elements, creating an inviting and energetic atmosphere." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCLaiWorb6u5KBx-YRyp6JlTtXi1n_agtHCSfWv6dadK7AsP0xg3dwrt1FSPE2xZhpnWydZFycah45oyeRBpKTepakuiy8VNhvD1Whwo2w4-ngpuxMzVOzDxGkeccMh0nrKzMtMNSbAfyNRoHivzaACNk8zSbSDOVhRDG9HZ80Ui-uNDpkQANoBZtR1xtzoS5F7Ixs4SMDglW1chJA-IsOiNF3c4DcjJQj6U_kvP-ESYK2Fz3wmzwKWNtAQTJuXg4KLfGTIH8DH-rKB"/>
+<!-- Decorative chips floating around -->
+<div class="absolute top-4 right-4 glass-card px-md py-xs rounded-full flex items-center gap-xs shadow-sm">
+<span class="material-symbols-outlined text-primary text-body-md" style="font-variation-settings: 'FILL' 1;">bolt</span>
+<span class="font-label-md text-label-md text-on-surface-variant">Active</span>
+</div>
+<div class="absolute bottom-10 left-0 glass-card px-md py-xs rounded-full flex items-center gap-xs shadow-sm">
+<span class="material-symbols-outlined text-secondary text-body-md" style="font-variation-settings: 'FILL' 1;">favorite</span>
+<span class="font-label-md text-label-md text-on-surface-variant">98 bpm</span>
+</div>
+</div>
+<div class="text-center mt-lg space-y-sm">
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile md:text-headline-lg text-on-surface tracking-tight">
+                    Fitness is more fun <br/> <span class="text-primary">with a best friend.</span>
+</h2>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-xs mx-auto">
+                    Track your health, level up your pet, and reach your goals together.
+                </p>
+</div>
+</div>
+<!-- Action Layer -->
+<section class="w-full space-y-md" id="auth-controls">
+<!-- Primary Start Button -->
+<button class="w-full py-md px-lg primary-gradient text-on-primary font-title-md text-title-md rounded-full active:scale-95 transition-transform duration-150 flex items-center justify-center gap-sm" onclick="toggleView('register')">
+                Get Started
+                <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+<!-- Secondary Sign In Button -->
+<button class="w-full py-md px-lg glass-card border-primary/20 text-primary font-title-md text-title-md rounded-full hover:bg-white/90 active:scale-95 transition-all duration-150" onclick="toggleView('login')">
+                Sign In
+            </button>
+</section>
+<!-- Hidden Form Container (Animated Entry) -->
+<div class="hidden fixed inset-0 z-50 flex items-end md:items-center justify-center p-0 md:p-margin-desktop bg-black/20 backdrop-blur-sm transition-opacity duration-300 opacity-0" id="login-form">
+<div class="glass-card w-full max-w-md rounded-t-3xl md:rounded-3xl p-xl shadow-2xl transform translate-y-full transition-transform duration-300">
+<div class="flex justify-between items-center mb-lg">
+<h3 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface" id="form-title">Welcome Back</h3>
+<button class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center text-on-surface-variant hover:text-error transition-colors" onclick="toggleView('home')">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<form class="space-y-md" onsubmit="event.preventDefault();">
+<div class="space-y-xs">
+<label class="font-label-md text-label-md text-on-surface-variant px-sm">Email Address</label>
+<input class="w-full px-lg py-md rounded-2xl border-none bg-surface-container text-body-md focus:ring-2 focus:ring-primary-container transition-all outline-none" placeholder="hello@petfit.app" type="email"/>
+</div>
+<div class="space-y-xs">
+<label class="font-label-md text-label-md text-on-surface-variant px-sm">Password</label>
+<input class="w-full px-lg py-md rounded-2xl border-none bg-surface-container text-body-md focus:ring-2 focus:ring-primary-container transition-all outline-none" placeholder="••••••••" type="password"/>
+</div>
+<div class="flex justify-end pt-xs">
+<a class="text-label-md font-label-md text-primary hover:underline" href="#">Forgot Password?</a>
+</div>
+<button class="w-full py-md primary-gradient text-on-primary font-title-md text-title-md rounded-full mt-lg shadow-lg active:scale-95 transition-transform">
+                        Continue
+                    </button>
+<div class="relative py-md">
+<div class="absolute inset-0 flex items-center"><div class="w-full border-t border-outline-variant/30"></div></div>
+<div class="relative flex justify-center text-xs"><span class="bg-white/80 px-sm text-on-surface-variant font-label-md">Or continue with</span></div>
+</div>
+<div class="grid grid-cols-2 gap-md">
+<button class="flex items-center justify-center gap-xs py-md border border-outline-variant/30 rounded-2xl hover:bg-surface-container transition-colors">
+<img alt="Google" class="w-5 h-5" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBvZJgIu8OMABRWmAXfXoe2FXj7e6-PvY8QmYo6fMkDJo2YywpNIQUd8dEzqdhjsdSyIK37lOYPNPx7MtIXnT7rWz0h8q1K2zlpAl8bP_FNBmYxQQTfO7Xy1CLMqYYRlE7WckxqR2xiNa5V6hauTEtNn113x8WeYrS0gb6hTCQ-VujezYusATg3V7xNmU65R1vqfM5znNh9_aNuFK4Px3WTGzJCUT0UB_EmBxb_Ozm-MSQd0J_pugbdiZzMXQmg2TsQMpMimN3PBqpv"/>
+<span class="font-label-md">Google</span>
+</button>
+<button class="flex items-center justify-center gap-xs py-md border border-outline-variant/30 rounded-2xl hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined text-xl" style="font-variation-settings: 'FILL' 1;">apps</span>
+<span class="font-label-md">Apple</span>
+</button>
+</div>
+</form>
+</div>
+</div>
+<footer class="mt-xl text-center">
+<p class="font-label-md text-label-md text-on-surface-variant/60">
+                By joining, you agree to our <a class="underline" href="#">Terms</a> and <a class="underline" href="#">Privacy Policy</a>.
+            </p>
+</footer>
+</main>
+<script>
+        function toggleView(view) {
+            const formOverlay = document.getElementById('login-form');
+            const formCard = formOverlay.querySelector('.glass-card');
+            const formTitle = document.getElementById('form-title');
+            
+            if (view === 'login' || view === 'register') {
+                formTitle.innerText = view === 'login' ? 'Welcome Back' : 'Create Account';
+                formOverlay.classList.remove('hidden');
+                setTimeout(() => {
+                    formOverlay.classList.remove('opacity-0');
+                    formCard.classList.remove('translate-y-full');
+                    formOverlay.classList.add('opacity-100');
+                    formCard.classList.add('translate-y-0');
+                }, 10);
+            } else {
+                formOverlay.classList.add('opacity-0');
+                formCard.classList.add('translate-y-full');
+                formOverlay.classList.remove('opacity-100');
+                formCard.classList.remove('translate-y-0');
+                setTimeout(() => {
+                    formOverlay.classList.add('hidden');
+                }, 300);
+            }
+        }
+
+        // Close form on backdrop click
+        document.getElementById('login-form').addEventListener('click', (e) => {
+            if (e.target.id === 'login-form') toggleView('home');
+        });
+    </script>
+</body></html>

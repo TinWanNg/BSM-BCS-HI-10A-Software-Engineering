@@ -38,7 +38,24 @@ all pngs could be found in [/04_UML](https://github.com/TinWanNg/BSM-BCS-HI-10A-
 9. Build
 
 10. Continuous delivery implemented in [/10_continuous-delivery/pipeline.yml](https://github.com/TinWanNg/BSM-BCS-HI-10A-Software-Engineering/tree/main/10_continuous-delivery/pipeline.yml)
+- this is an actual pipeline from a software, with sensitive variable names renamed.
 
 11. Metrics
 
 12. [Architecture canvas](https://github.com/TinWanNg/BSM-BCS-HI-10A-Software-Engineering/tree/main/12_architecture/architecture.md)
+
+13. Agentic coding
+a. GUI
+- prompts:
+  ```
+  Create a mobile sport app with the following functions:
+  - Register and log in 
+  - Connect to health apps such as Google fir or Apple health, to track users sleep and steps.
+  -  Set goals such as steps, water, and sleep count, as well as gym workouts frequency (e.g. once per week)
+  - Select from a set of predefined 3d pets, like Tamagotchi
+  -  Everytime a goal is filled or exceeded, users get coins.
+  - In the pet shop, coins can be used to exchange for food and toys, which increase the pet's hunger and fun index
+  - When the indexes are dropping, it reminds users to fulfill the goals set
+  ```
+
+- [result](https://github.com/TinWanNg/BSM-BCS-HI-10A-Software-Engineering/tree/main/13a_GUI)

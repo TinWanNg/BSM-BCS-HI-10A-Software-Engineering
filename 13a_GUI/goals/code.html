@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+
+<html class="light dark" lang="en" style=""><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<title>PetFit - Goal Setting</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&amp;family=Be+Vietnam+Pro:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">tailwind.config = {darkMode: "class", theme: {extend: {colors: {"on-tertiary-fixed-variant": "#7a2f0e", "surface-dim": "#12131b", "surface-container-low": "#1a1b24", "on-background": "#e3e1ee", "inverse-surface": "#e3e1ee", "secondary-fixed": "#e0e0ff", "on-primary-container": "#bcc1ff", "surface-bright": "#383842", primary: "#bdc2ff", "surface-container-high": "#292932", "secondary-container": "#3d4381", "outline-variant": "#454655", surface: "#12131b", "secondary-fixed-dim": "#bdc2ff", "on-secondary": "#232a67", "on-secondary-fixed-variant": "#3b417f", "on-secondary-fixed": "#0c1252", "surface-container": "#1e1f28", "on-error": "#690005", "on-surface": "#e3e1ee", "surface-variant": "#34343d", "on-tertiary-container": "#ffb498", "primary-container": "#2c3bd4", tertiary: "#ffb59a", error: "#ffb4ab", "on-secondary-container": "#adb3fa", "surface-container-highest": "#34343d", "tertiary-fixed-dim": "#ffb59a", "on-surface-variant": "#c5c5d8", "on-error-container": "#ffdad6", "tertiary-fixed": "#ffdbcf", "inverse-primary": "#3b4ae0", "surface-container-lowest": "#0d0e16", "inverse-on-surface": "#2f3039", "on-primary-fixed": "#000767", outline: "#8f8fa1", "on-tertiary-fixed": "#380d00", "primary-fixed-dim": "#bdc2ff", "on-primary-fixed-variant": "#1c2cc9", "surface-tint": "#bdc2ff", "error-container": "#93000a", "primary-fixed": "#e0e0ff", "on-primary": "#0010a2", "on-tertiary": "#5b1b00", background: "#12131b", secondary: "#bdc2ff", "tertiary-container": "#893a19"}, borderRadius: {DEFAULT: "0.25rem", lg: "0.5rem", xl: "0.75rem", full: "9999px"}, spacing: {xs: "4px", unit: "4px", "margin-mobile": "20px", md: "16px", sm: "8px", xl: "32px", gutter: "16px", lg: "24px", "margin-desktop": "40px"}, fontFamily: {"stat-numeric": ["Plus Jakarta Sans"], "headline-lg-mobile": ["Plus Jakarta Sans"], "title-md": ["Plus Jakarta Sans"], "body-lg": ["Be Vietnam Pro"], "body-md": ["Be Vietnam Pro"], "display-lg": ["Plus Jakarta Sans"], "headline-lg": ["Plus Jakarta Sans"], "label-md": ["Be Vietnam Pro"], headline: ["Plus Jakarta Sans"], display: ["Plus Jakarta Sans"], body: ["Be Vietnam Pro"], label: ["Be Vietnam Pro"]}, fontSize: {"stat-numeric": ["24px", {lineHeight: "32px", fontWeight: "700"}], "headline-lg-mobile": ["28px", {lineHeight: "36px", fontWeight: "700"}], "title-md": ["20px", {lineHeight: "28px", fontWeight: "600"}], "body-lg": ["18px", {lineHeight: "28px", fontWeight: "400"}], "body-md": ["16px", {lineHeight: "24px", fontWeight: "400"}], "display-lg": ["40px", {lineHeight: "48px", letterSpacing: "-0.02em", fontWeight: "800"}], "headline-lg": ["32px", {lineHeight: "40px", letterSpacing: "-0.01em", fontWeight: "700"}], "label-md": ["14px", {lineHeight: "20px", letterSpacing: "0.01em", fontWeight: "600"}]}}}};</script>
+<style>
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+        }
+        .dark .glass-card {
+            background: rgba(26, 31, 46, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        input[type="range"] {
+            -webkit-appearance: none;
+            width: 100%;
+            background: transparent;
+        }
+        input[type="range"]::-webkit-slider-runnable-track {
+            width: 100%;
+            height: 12px;
+            background: #e2e7ff;
+            border-radius: 9999px;
+        }
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            height: 24px;
+            width: 24px;
+            border-radius: 50%;
+            background: #006b5f;
+            cursor: pointer;
+            margin-top: -6px;
+            box-shadow: 0 0 10px rgba(0, 107, 95, 0.3);
+            border: 2px solid white;
+        }
+        .pet-bounce {
+            animation: bounce 2s infinite ease-in-out;
+        }
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        .reward-pulse {
+            animation: pulse 1.5s infinite alternate;
+        }
+        @keyframes pulse {
+            from { transform: scale(1); opacity: 0.8; }
+            to { transform: scale(1.1); opacity: 1; }
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface font-body-md min-h-screen pb-24">
+<!-- Top App Bar -->
+<header class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-xl border-b border-white/20 shadow-sm flex justify-between items-center px-margin-mobile py-sm h-16">
+<div class="flex items-center gap-sm">
+<div class="w-10 h-10 rounded-full overflow-hidden border-2 border-primary">
+<img alt="User" class="w-full h-full object-cover" data-alt="A detailed digital 3D avatar of a fit person wearing a high-tech teal fitness tracker and workout gear. The avatar is centered against a soft blurred background of a modern gym. The lighting is bright and airy, reflecting a professional and energetic fitness-focused UI aesthetic with vibrant teal accents." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDbNeUjmGTslHveIdeIlXeyAwPrgZdEZzlUQ-gNcm3a8n6zgg3DZxLUEzooasyKYzK-GPIuL2PCgsog4kL9k_zS-TeALaiHpB8fdDtu1CamouJK0LY7OotLc_iez3jDziayX0-KoY8uKHni21Ic3FxZ7YL9iEY4ML9P3S5qD0lSrrXmKySI2yGL607dQXGOLxbOB-YtvK4GFoF0KpnGNttvCy8DUuRe57PPC5BABAcRIvHCkW3IQdiia02WWHCRb7Zxju9fbI2PJx59"/>
+</div>
+<span class="font-display-lg text-headline-lg-mobile text-primary">PetFit</span>
+</div>
+<div class="flex items-center gap-xs bg-secondary-container px-3 py-1 rounded-full shadow-sm">
+<span class="material-symbols-outlined text-white text-[20px]" style="font-variation-settings: 'FILL' 1;">monetization_on</span>
+<span class="font-stat-numeric text-white text-label-md">1,250</span>
+</div>
+</header>
+<main class="mt-20 px-margin-mobile max-w-2xl mx-auto space-y-xl">
+<!-- Hero: The Supply Meter -->
+<section class="glass-card rounded-xl p-lg text-center relative overflow-hidden">
+<div class="absolute -top-4 -right-4 opacity-10">
+<span class="material-symbols-outlined text-[120px]">inventory_2</span>
+</div>
+<div class="relative z-10">
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface mb-xs">Goal Supplies</h1>
+<p class="text-on-surface-variant font-body-md mb-md">Achieve your targets to earn kibble and toys!</p>
+<div class="flex justify-center mb-md">
+<div class="relative p-4 rounded-full bg-primary-container/10 border-4 border-dashed border-primary/30 pet-bounce">
+<span class="material-symbols-outlined text-primary text-[48px]" style="font-variation-settings: 'FILL' 1;">pets</span>
+</div>
+</div>
+<div class="space-y-sm">
+<div class="flex justify-between text-label-md font-label-md text-primary">
+<span class="">Supply Progress</span>
+<span class="" id="overall-progress">65%</span>
+</div>
+<div class="w-full bg-surface-container-high rounded-full h-4">
+<div class="bg-gradient-to-r from-primary to-primary-container h-full rounded-full transition-all duration-500 shadow-sm" id="progress-bar" style="width: 65%;"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- Goal Interactive Section -->
+<section class="space-y-lg">
+<h2 class="font-title-md text-title-md text-on-surface-variant">Daily Targets</h2>
+<!-- Steps Goal -->
+<div class="glass-card rounded-xl p-md flex flex-col gap-md transition-transform active:scale-[0.98]">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-md">
+<div class="w-12 h-12 rounded-xl bg-secondary-container/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">directions_walk</span>
+</div>
+<div>
+<p class="font-title-md text-body-lg text-on-surface">Daily Steps</p>
+</div>
+</div>
+<div class="text-right">
+<span class="font-stat-numeric text-stat-numeric text-primary" id="steps-val">8,000</span>
+</div>
+</div>
+<input class="w-full accent-primary" id="steps-slider" max="20000" min="2000" step="500" type="range" value="8000"/>
+</div>
+<!-- Water Goal -->
+<div class="glass-card rounded-xl p-md flex flex-col gap-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-md">
+<div class="w-12 h-12 rounded-xl bg-tertiary-container/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-tertiary" style="font-variation-settings: 'FILL' 1;">water_drop</span>
+</div>
+<div>
+<p class="font-title-md text-body-lg text-on-surface">Hydration (ml)</p>
+</div>
+</div>
+<div class="text-right">
+<span class="font-stat-numeric text-stat-numeric text-primary" id="water-val">2,500</span>
+</div>
+</div>
+<input class="w-full accent-primary" id="water-slider" max="5000" min="500" step="100" type="range" value="2500"/>
+</div>
+<!-- Sleep Goal -->
+<div class="glass-card rounded-xl p-md flex flex-col gap-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-md">
+<div class="w-12 h-12 rounded-xl bg-surface-container-highest/50 flex items-center justify-center border border-white/40">
+<span class="material-symbols-outlined text-on-surface-variant" style="font-variation-settings: 'FILL' 1;">bedtime</span>
+</div>
+<div>
+<p class="font-title-md text-body-lg text-on-surface">Sleep (Hours)</p>
+</div>
+</div>
+<div class="text-right">
+<span class="font-stat-numeric text-stat-numeric text-primary" id="sleep-val">7.5</span>
+</div>
+</div>
+<div class="flex items-center gap-md justify-between bg-surface-container-low p-sm rounded-full">
+<button class="w-10 h-10 rounded-full bg-white shadow-sm flex items-center justify-center active:scale-90 transition-transform" onclick="adjustVal('sleep', -0.5)">
+<span class="material-symbols-outlined">remove</span>
+</button>
+<div class="flex-1 text-center font-bold">7.5 Hours</div>
+<button class="w-10 h-10 rounded-full bg-white shadow-sm flex items-center justify-center active:scale-90 transition-transform" onclick="adjustVal('sleep', 0.5)">
+<span class="material-symbols-outlined">add</span>
+</button>
+</div>
+</div>
+<h2 class="font-title-md text-title-md text-on-surface-variant pt-md">Weekly Frequency</h2>
+<!-- Gym Frequency -->
+<div class="glass-card rounded-xl p-md">
+<div class="flex items-center gap-md mb-md">
+<div class="w-12 h-12 rounded-xl bg-secondary-container/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">fitness_center</span>
+</div>
+<div>
+<p class="font-title-md text-body-lg text-on-surface">Gym Sessions</p>
+</div>
+</div>
+<div class="grid grid-cols-7 gap-xs">
+<button class="gym-day w-full aspect-square rounded-lg border-2 border-primary bg-primary text-white flex items-center justify-center font-bold">M</button>
+<button class="gym-day w-full aspect-square rounded-lg border-2 border-outline-variant text-on-surface-variant flex items-center justify-center font-bold">T</button>
+<button class="gym-day w-full aspect-square rounded-lg border-2 border-primary bg-primary text-white flex items-center justify-center font-bold">W</button>
+<button class="gym-day w-full aspect-square rounded-lg border-2 border-outline-variant text-on-surface-variant flex items-center justify-center font-bold">T</button>
+<button class="gym-day w-full aspect-square rounded-lg border-2 border-primary bg-primary text-white flex items-center justify-center font-bold">F</button>
+<button class="gym-day w-full aspect-square rounded-lg border-2 border-outline-variant text-on-surface-variant flex items-center justify-center font-bold">S</button>
+<button class="gym-day w-full aspect-square rounded-lg border-2 border-outline-variant text-on-surface-variant flex items-center justify-center font-bold">S</button>
+</div>
+</div>
+</section>
+<button class="w-full py-md rounded-full bg-gradient-to-r from-primary to-primary-container text-white font-bold text-body-lg shadow-xl hover:opacity-90 active:scale-95 transition-all mb-xl">
+            Save My Goals
+        </button>
+</main>
+<!-- Bottom Navigation Bar -->
+<nav class="fixed bottom-0 w-full z-50 bg-surface/70 backdrop-blur-md border-t border-white/20 shadow-[0_-4px_20px_rgba(0,107,95,0.15)] flex justify-around items-center h-16 px-2 pb-safe rounded-t-xl">
+<div class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-colors active:scale-90 duration-200">
+<span class="material-symbols-outlined">pets</span>
+<span class="font-label-md text-label-md">Home</span>
+</div>
+<div class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-full px-4 py-1 transition-transform active:scale-90 duration-200">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">emoji_events</span>
+<span class="font-label-md text-label-md">Goals</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-colors active:scale-90 duration-200">
+<span class="material-symbols-outlined">settings_input_antenna</span>
+<span class="font-label-md text-label-md">Sync</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-colors active:scale-90 duration-200">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-md text-label-md">Profile</span>
+</div>
+</nav>
+<script>
+        // Interactive Slider Values
+        const stepsSlider = document.getElementById('steps-slider');
+        const stepsVal = document.getElementById('steps-val');
+        const waterSlider = document.getElementById('water-slider');
+        const waterVal = document.getElementById('water-val');
+
+        stepsSlider.addEventListener('input', (e) => {
+            stepsVal.innerText = parseInt(e.target.value).toLocaleString();
+            updateMasterProgress();
+        });
+
+        waterSlider.addEventListener('input', (e) => {
+            waterVal.innerText = parseInt(e.target.value).toLocaleString();
+            updateMasterProgress();
+        });
+
+        function adjustVal(type, amount) {
+            if (type === 'sleep') {
+                const sleepText = document.getElementById('sleep-val');
+                let current = parseFloat(sleepText.innerText);
+                let next = Math.min(Math.max(4, current + amount), 12);
+                sleepText.innerText = next.toFixed(1);
+                document.querySelectorAll('.flex-1.text-center.font-bold').forEach(el => {
+                    if(el.innerText.includes('Hours')) el.innerText = `${next.toFixed(1)} Hours`;
+                });
+            }
+            updateMasterProgress();
+        }
+
+        // Gym Days Toggling
+        document.querySelectorAll('.gym-day').forEach(btn => {
+            btn.addEventListener('click', () => {
+                btn.classList.toggle('bg-primary');
+                btn.classList.toggle('text-white');
+                btn.classList.toggle('text-on-surface-variant');
+                btn.classList.toggle('border-primary');
+                btn.classList.toggle('border-outline-variant');
+                updateMasterProgress();
+            });
+        });
+
+        function updateMasterProgress() {
+            // Simulated calculation logic
+            const bar = document.getElementById('progress-bar');
+            const label = document.getElementById('overall-progress');
+            let base = 65; 
+            // Add a little randomness for the feel of dynamic changes
+            let shift = (Math.random() * 5) - 2.5; 
+            let newVal = Math.min(100, Math.max(0, base + shift));
+            bar.style.width = newVal.toFixed(0) + '%';
+            label.innerText = newVal.toFixed(0) + '%';
+        }
+    </script>
+</body></html>
