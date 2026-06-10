@@ -45,6 +45,7 @@ all pngs could be found in [/04_UML](https://github.com/TinWanNg/BSM-BCS-HI-10A-
 12. [Architecture canvas](https://github.com/TinWanNg/BSM-BCS-HI-10A-Software-Engineering/tree/main/12_architecture/architecture.md)
 
 13. Agentic coding
+
 a. GUI
 - prompts:
   ```
