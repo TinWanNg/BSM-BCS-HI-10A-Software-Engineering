@@ -59,3 +59,5 @@ a. GUI
   ```
 
 - [result](https://github.com/TinWanNg/BSM-BCS-HI-10A-Software-Engineering/tree/main/13a_GUI)
+
+b. Pet project with lovable [here](https://github.com/TinWanNg/BSM-BCS-HI-10A-Software-Engineering/tree/main/13b_pet-project/lovable-project-ba953e67)
