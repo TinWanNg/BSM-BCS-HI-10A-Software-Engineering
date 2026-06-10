@@ -1,6 +1,5 @@
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
-import { useServerFn } from "@tanstack/react-start";
 import { getDashboard, saveGoals } from "@/lib/api/app.functions";
 import { useEffect, useState } from "react";
 import { Card } from "@/components/ui/card";
@@ -11,17 +10,15 @@ import { BottomNav } from "@/components/BottomNav";
 import { toast } from "sonner";
 import { ArrowLeft } from "lucide-react";
 
-export const Route = createFileRoute("/_authenticated/goals")({
+export const Route = createFileRoute("/goals")({
   component: GoalsPage,
 });
 
 function GoalsPage() {
   const navigate = useNavigate();
   const qc = useQueryClient();
-  const dashFn = useServerFn(getDashboard);
-  const saveFn = useServerFn(saveGoals);
 
-  const { data } = useQuery({ queryKey: ["dashboard"], queryFn: () => dashFn() });
+  const { data } = useQuery({ queryKey: ["dashboard"], queryFn: getDashboard });
   const [steps, setSteps] = useState(8000);
   const [water, setWater] = useState(8);
   const [sleep, setSleep] = useState(8);
@@ -37,7 +34,7 @@ function GoalsPage() {
   }, [data]);
 
   const mut = useMutation({
-    mutationFn: saveFn,
+    mutationFn: saveGoals,
     onSuccess: () => {
       qc.invalidateQueries({ queryKey: ["dashboard"] });
       toast.success("Goals updated");
@@ -78,12 +75,10 @@ function GoalsPage() {
             disabled={mut.isPending}
             onClick={() =>
               mut.mutate({
-                data: {
-                  steps_target: steps,
-                  water_target: water,
-                  sleep_target: sleep,
-                  workouts_per_week: workouts,
-                },
+                steps_target: steps,
+                water_target: water,
+                sleep_target: sleep,
+                workouts_per_week: workouts,
               })
             }
           >

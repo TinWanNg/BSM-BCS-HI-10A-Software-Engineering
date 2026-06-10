@@ -1,22 +1,18 @@
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { useQuery } from "@tanstack/react-query";
-import { useServerFn } from "@tanstack/react-start";
 import { getDashboard } from "@/lib/api/app.functions";
 import { Card } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
 import { BottomNav } from "@/components/BottomNav";
-import { supabase } from "@/integrations/supabase/client";
-import { ArrowLeft, LogOut } from "lucide-react";
+import { ArrowLeft } from "lucide-react";
 import { PetAvatar } from "@/components/PetAvatar";
 
-export const Route = createFileRoute("/_authenticated/settings")({
+export const Route = createFileRoute("/settings")({
   component: SettingsPage,
 });
 
 function SettingsPage() {
   const navigate = useNavigate();
-  const dashFn = useServerFn(getDashboard);
-  const { data } = useQuery({ queryKey: ["dashboard"], queryFn: () => dashFn() });
+  const { data } = useQuery({ queryKey: ["dashboard"], queryFn: getDashboard });
 
   return (
     <div className="min-h-screen pb-28">
@@ -33,7 +29,7 @@ function SettingsPage() {
           </div>
         </Card>
 
-        <Card className="p-2 rounded-2xl border-0 bg-card/90 mb-3">
+        <Card className="p-2 rounded-2xl border-0 bg-card/90">
           <button onClick={() => navigate({ to: "/goals" })} className="w-full text-left px-3 py-3 hover:bg-muted/50 rounded-xl">
             Edit goals
           </button>
@@ -41,17 +37,6 @@ function SettingsPage() {
             Change pet
           </button>
         </Card>
-
-        <Button
-          variant="outline"
-          className="w-full rounded-xl"
-          onClick={async () => {
-            await supabase.auth.signOut();
-            navigate({ to: "/auth" });
-          }}
-        >
-          <LogOut className="h-4 w-4 mr-2" /> Sign out
-        </Button>
       </div>
       <BottomNav />
     </div>

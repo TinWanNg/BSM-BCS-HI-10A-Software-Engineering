@@ -1,6 +1,5 @@
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
-import { useServerFn } from "@tanstack/react-start";
 import { getDashboard, buyItem } from "@/lib/api/app.functions";
 import { SHOP } from "@/lib/shop";
 import { Card } from "@/components/ui/card";
@@ -9,19 +8,17 @@ import { BottomNav } from "@/components/BottomNav";
 import { toast } from "sonner";
 import { ArrowLeft, Coins } from "lucide-react";
 
-export const Route = createFileRoute("/_authenticated/shop")({
+export const Route = createFileRoute("/shop")({
   component: ShopPage,
 });
 
 function ShopPage() {
   const navigate = useNavigate();
   const qc = useQueryClient();
-  const dashFn = useServerFn(getDashboard);
-  const buyFn = useServerFn(buyItem);
-  const { data } = useQuery({ queryKey: ["dashboard"], queryFn: () => dashFn() });
+  const { data } = useQuery({ queryKey: ["dashboard"], queryFn: getDashboard });
 
   const mut = useMutation({
-    mutationFn: buyFn,
+    mutationFn: buyItem,
     onSuccess: () => {
       qc.invalidateQueries({ queryKey: ["dashboard"] });
       toast.success("Yum/Yay! Your pet is happier 💖");
@@ -58,7 +55,7 @@ function ShopPage() {
                 size="sm"
                 className="w-full rounded-xl"
                 disabled={mut.isPending || coins < it.cost}
-                onClick={() => mut.mutate({ data: { itemId: it.id } })}
+                onClick={() => mut.mutate({ itemId: it.id })}
               >
                 <Coins className="h-3.5 w-3.5 mr-1" /> {it.cost}
               </Button>
@@ -77,7 +74,7 @@ function ShopPage() {
                 size="sm"
                 className="w-full rounded-xl"
                 disabled={mut.isPending || coins < it.cost}
-                onClick={() => mut.mutate({ data: { itemId: it.id } })}
+                onClick={() => mut.mutate({ itemId: it.id })}
               >
                 <Coins className="h-3.5 w-3.5 mr-1" /> {it.cost}
               </Button>

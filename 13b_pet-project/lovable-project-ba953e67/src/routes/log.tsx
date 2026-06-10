@@ -1,6 +1,5 @@
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
-import { useServerFn } from "@tanstack/react-start";
 import { getDashboard, logToday } from "@/lib/api/app.functions";
 import { useEffect, useState } from "react";
 import { Card } from "@/components/ui/card";
@@ -12,16 +11,14 @@ import { BottomNav } from "@/components/BottomNav";
 import { toast } from "sonner";
 import { ArrowLeft, Smartphone } from "lucide-react";
 
-export const Route = createFileRoute("/_authenticated/log")({
+export const Route = createFileRoute("/log")({
   component: LogPage,
 });
 
 function LogPage() {
   const navigate = useNavigate();
   const qc = useQueryClient();
-  const dashFn = useServerFn(getDashboard);
-  const logFn = useServerFn(logToday);
-  const { data } = useQuery({ queryKey: ["dashboard"], queryFn: () => dashFn() });
+  const { data } = useQuery({ queryKey: ["dashboard"], queryFn: getDashboard });
 
   const [steps, setSteps] = useState(0);
   const [water, setWater] = useState(0);
@@ -38,7 +35,7 @@ function LogPage() {
   }, [data]);
 
   const mut = useMutation({
-    mutationFn: logFn,
+    mutationFn: logToday,
     onSuccess: (res: any) => {
       qc.invalidateQueries({ queryKey: ["dashboard"] });
       if (res?.coinsEarned > 0) toast.success(`+${res.coinsEarned} coins! 🪙`);
@@ -99,7 +96,7 @@ function LogPage() {
           <Button
             className="w-full rounded-xl h-11"
             disabled={mut.isPending}
-            onClick={() => mut.mutate({ data: { steps, water, sleep, workout } })}
+            onClick={() => mut.mutate({ steps, water, sleep, workout })}
           >
             Save today
           </Button>

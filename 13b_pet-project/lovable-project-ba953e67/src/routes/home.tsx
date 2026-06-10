@@ -1,6 +1,5 @@
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { useQuery } from "@tanstack/react-query";
-import { useServerFn } from "@tanstack/react-start";
 import { getDashboard } from "@/lib/api/app.functions";
 import { PetAvatar } from "@/components/PetAvatar";
 import { BottomNav } from "@/components/BottomNav";
@@ -9,7 +8,7 @@ import { Progress } from "@/components/ui/progress";
 import { Footprints, Droplets, Moon, Dumbbell, Coins, Heart, Smile } from "lucide-react";
 import { useEffect } from "react";
 
-export const Route = createFileRoute("/_authenticated/home")({
+export const Route = createFileRoute("/home")({
   component: Dashboard,
 });
 
@@ -45,24 +44,24 @@ function GoalRow({
 
 function Dashboard() {
   const navigate = useNavigate();
-  const dashboardFn = useServerFn(getDashboard);
   const { data, isLoading } = useQuery({
     queryKey: ["dashboard"],
-    queryFn: () => dashboardFn(),
+    queryFn: getDashboard,
     refetchOnWindowFocus: true,
   });
 
   useEffect(() => {
-    if (data && data.profile && !data.profile.onboarded) {
+    if (data && !data.profile.onboarded) {
       navigate({ to: "/onboarding" });
     }
   }, [data, navigate]);
 
-  if (isLoading || !data || !data.profile || !data.goals) {
+  if (isLoading || !data) {
     return <div className="min-h-screen flex items-center justify-center text-muted-foreground">Loading…</div>;
   }
+  if (!data.profile.onboarded) return null;
+
   const { profile, goals, log, pet, workoutsThisWeek } = data;
-  if (!profile.onboarded) return null;
 
   const avg = ((pet?.hunger ?? 0) + (pet?.fun ?? 0)) / 2;
   const mood: "happy" | "okay" | "sad" = avg > 65 ? "happy" : avg > 35 ? "okay" : "sad";
@@ -107,10 +106,10 @@ function Dashboard() {
         </Card>
 
         <div className="grid gap-3">
-          <GoalRow icon={Footprints} label="Steps" value={log.steps} target={goals.steps_target} unit="" tint="var(--pink)" rewarded={(log.rewarded as any)?.steps} />
-          <GoalRow icon={Droplets} label="Water" value={log.water} target={goals.water_target} unit="cups" tint="var(--sky)" rewarded={(log.rewarded as any)?.water} />
-          <GoalRow icon={Moon} label="Sleep" value={log.sleep} target={goals.sleep_target} unit="hrs" tint="var(--mint)" rewarded={(log.rewarded as any)?.sleep} />
-          <GoalRow icon={Dumbbell} label="Workouts this week" value={workoutsThisWeek} target={goals.workouts_per_week} unit="" tint="var(--lemon)" rewarded={(log.rewarded as any)?.workout} />
+          <GoalRow icon={Footprints} label="Steps" value={log.steps} target={goals.steps_target} unit="" tint="var(--pink)" rewarded={log.rewarded?.steps} />
+          <GoalRow icon={Droplets} label="Water" value={log.water} target={goals.water_target} unit="cups" tint="var(--sky)" rewarded={log.rewarded?.water} />
+          <GoalRow icon={Moon} label="Sleep" value={log.sleep} target={goals.sleep_target} unit="hrs" tint="var(--mint)" rewarded={log.rewarded?.sleep} />
+          <GoalRow icon={Dumbbell} label="Workouts this week" value={workoutsThisWeek} target={goals.workouts_per_week} unit="" tint="var(--lemon)" rewarded={log.rewarded?.workout} />
         </div>
 
         <Link to="/log" className="block mt-4 text-center rounded-2xl bg-primary text-primary-foreground font-medium py-3.5">

@@ -1,6 +1,5 @@
-import { createFileRoute, useNavigate, redirect } from "@tanstack/react-router";
+import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
-import { useServerFn } from "@tanstack/react-start";
 import { getDashboard, completeOnboarding } from "@/lib/api/app.functions";
 import { useState } from "react";
 import { PETS } from "@/lib/pets";
@@ -8,25 +7,22 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card } from "@/components/ui/card";
 import { toast } from "sonner";
-import { supabase } from "@/integrations/supabase/client";
 
-export const Route = createFileRoute("/_authenticated/onboarding")({
+export const Route = createFileRoute("/onboarding")({
   component: Onboarding,
 });
 
 function Onboarding() {
   const navigate = useNavigate();
   const qc = useQueryClient();
-  const dashboardFn = useServerFn(getDashboard);
-  const onboardFn = useServerFn(completeOnboarding);
 
-  const { data } = useQuery({ queryKey: ["dashboard"], queryFn: () => dashboardFn() });
+  const { data } = useQuery({ queryKey: ["dashboard"], queryFn: getDashboard });
   const [petId, setPetId] = useState<string>("cat");
   const [petName, setPetName] = useState("");
   const [displayName, setDisplayName] = useState(data?.profile?.display_name ?? "");
 
   const mut = useMutation({
-    mutationFn: onboardFn,
+    mutationFn: completeOnboarding,
     onSuccess: () => {
       qc.invalidateQueries({ queryKey: ["dashboard"] });
       toast.success("Welcome aboard! 🎉");
@@ -37,7 +33,7 @@ function Onboarding() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    mut.mutate({ data: { petId, petName: petName || "Buddy", displayName: displayName || "Friend" } });
+    mut.mutate({ petId, petName: petName || "Buddy", displayName: displayName || "Friend" });
   };
 
   return (
@@ -81,16 +77,6 @@ function Onboarding() {
             Start the journey
           </Button>
         </form>
-        <button
-          type="button"
-          className="block mx-auto text-xs text-muted-foreground hover:underline"
-          onClick={async () => {
-            await supabase.auth.signOut();
-            navigate({ to: "/auth" });
-          }}
-        >
-          Sign out
-        </button>
       </Card>
     </div>
   );
