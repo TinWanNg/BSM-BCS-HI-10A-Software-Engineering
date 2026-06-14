@@ -33,7 +33,10 @@ all pngs could be found in [/04_UML](https://github.com/TinWanNg/BSM-BCS-HI-10A-
 
 7. Refactoring in [/07_refactoring](https://github.com/TinWanNg/BSM-BCS-HI-10A-Software-Engineering/tree/main/07_refactoring)
 
-8. Testing in [/08_test](https://github.com/TinWanNg/BSM-BCS-HI-10A-Software-Engineering/tree/main/08_test)
+8. Testing
+- done in the distributed secure messenger app in 13c
+- test files are [/here](https://github.com/TinWanNg/BSM-BCS-HI-10A-Software-Engineering/tree/main/13c_distributed/tests)
+- explanation in 13c's README's [Testing section](https://github.com/TinWanNg/BSM-BCS-HI-10A-Software-Engineering/tree/main/13c_distributed/README.md)
 
 9. Build
 
@@ -62,3 +65,5 @@ all pngs could be found in [/04_UML](https://github.com/TinWanNg/BSM-BCS-HI-10A-
   - [result](https://github.com/TinWanNg/BSM-BCS-HI-10A-Software-Engineering/tree/main/13a_GUI)
 
   b. Pet project with lovable [here](https://github.com/TinWanNg/BSM-BCS-HI-10A-Software-Engineering/tree/main/13b_pet-project/lovable-project-ba953e67)
+
+  c. Distributed secure messenger app [here](https://github.com/TinWanNg/BSM-BCS-HI-10A-Software-Engineering/tree/main/13c_distributed)
