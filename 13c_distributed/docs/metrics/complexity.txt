@@ -1,0 +1,40 @@
+auth.py
+    F 21:0 hash_password - A (1)
+    F 28:0 verify_password - A (1)
+    F 36:0 generate_token - A (1)
+client.py
+    M 72:4 MessengerClient.receive_loop - C (13)
+    M 110:4 MessengerClient.input_loop - B (10)
+    C 44:0 MessengerClient - B (6)
+    F 150:0 run - A (2)
+    M 54:4 MessengerClient._send - A (2)
+    M 59:4 MessengerClient._get_key - A (2)
+    F 35:0 _help - A (1)
+    M 45:4 MessengerClient.__init__ - A (1)
+    M 67:4 MessengerClient.send_dm - A (1)
+crypto_utils.py
+    F 20:0 generate_key_pair - A (1)
+    F 25:0 serialize_public_key - A (1)
+    F 32:0 deserialize_public_key - A (1)
+    F 43:0 encrypt - A (1)
+    F 55:0 decrypt - A (1)
+protocol.py
+    F 26:0 make - A (1)
+server.py
+    F 92:0 handle - C (16)
+    F 50:0 _handle_register - A (5)
+    F 37:0 _broadcast_user_list - A (3)
+    F 68:0 _handle_login - A (3)
+    F 33:0 _send - A (1)
+    F 46:0 _auth - A (1)
+    F 83:0 _complete_login - A (1)
+    F 148:0 main - A (1)
+store.py
+    F 21:0 _conn - A (2)
+    F 40:0 create_user - A (2)
+    F 28:0 init_db - A (1)
+    F 54:0 get_user - A (1)
+    F 58:0 update_public_key - A (1)
+
+31 blocks (classes, functions, methods) analyzed.
+Average complexity: A (2.7419354838709675)

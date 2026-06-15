@@ -151,6 +151,8 @@ class MockWebSocket:
         return json.dumps(item)
 ```
 
+---
+
 ## Build (Gradle)
 
 The project uses **Gradle 9** as its build system. Gradle is not Python-native — it normally builds Java/Kotlin projects — so all tasks use `Exec` to shell out to Python. This is intentional: it shows how a general-purpose build tool can manage any language.
@@ -180,3 +182,27 @@ gradle build
 `F541` was a genuine bug — `f"[+] RSA-2048 key pair generated"` had an `f` prefix but no `{}` inside. Fixed the long lines and removed the useless `f`. The `E221` (column alignment) errors were intentional style choices, so those were suppressed in `.flake8` with a comment explaining why.
 
 ---
+
+## Metrics
+
+**radon** provides two distinct metrics: cyclomatic complexity and maintainability index.
+
+Run with `gradle metrics` or directly:
+```bash
+python -m radon cc *.py -s -a   # metric 1: cyclomatic complexity per function
+python -m radon mi *.py -s      # metric 2: maintainability index per file
+```
+
+### Metric 1 — Cyclomatic Complexity [here](docs/metrics/complexity.txt)
+
+Counts the number of independent paths through a function (every `if`, `elif`, `for`, `while` adds 1). Higher = harder to test.
+
+Average across all 31 blocks: A (2.74)  ✅
+
+`server.py:handle` and `client.py:receive_loop` are C/B because they are message dispatchers — every `if msg_type ==` adds one point. The rest of the codebase is A.
+
+### Metric 2 — Maintainability Index [here](docs/metrics/maintainability.txt)
+
+A composite score (0–100) derived from complexity, lines of code, and comment ratio. Higher = easier to maintain.
+
+`server.py` and `client.py` receive two lower scores (54, 52), reflecting the same dispatch functions flagged above — long but not unmaintainable.

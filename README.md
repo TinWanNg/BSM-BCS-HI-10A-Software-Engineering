@@ -45,8 +45,13 @@ all pngs could be found in [/04_UML](https://github.com/TinWanNg/BSM-BCS-HI-10A-
 
 10. Continuous delivery implemented in [/10_continuous-delivery/pipeline.yml](https://github.com/TinWanNg/BSM-BCS-HI-10A-Software-Engineering/tree/main/10_continuous-delivery/pipeline.yml)
 - this is an actual pipeline from a software, with sensitive variable names renamed.
+- implemented with GitHub Actions, the pipeline runs on every push to `main` and on pull requests. It has three sequential jobs: `test` (installs dependencies, caches Playwright browsers, and runs the test suite), `build` (builds and pushes a Docker image tagged with the commit SHA to GitHub Container Registry), and `deploy_staging` (deploys that image to a PaaS staging environment). Each job only starts if the previous one succeeds, so broken code never reaches staging.
 
 11. Metrics
+- done in the distributed secure messenger app in 13c
+- metrics calculated [/here](https://github.com/TinWanNg/BSM-BCS-HI-10A-Software-Engineering/tree/main/13c_distributed/docs/metrics)
+- explanation in 13c's README's [Metrics section](https://github.com/TinWanNg/BSM-BCS-HI-10A-Software-Engineering/tree/main/13c_distributed/README.md)
+- I chose Radon, which is tailored for Python, over SonarQube. Given that SonarQube is designed for large-scale engineering to track technical debt etc across branches and PRs, it is an overkill for this project. Additionally, Radon provides a per-function breakdown, which makes it easy to refactor individual blocks later.
 
 12. [Architecture canvas](https://github.com/TinWanNg/BSM-BCS-HI-10A-Software-Engineering/tree/main/12_architecture/architecture.md)
 

@@ -74,6 +74,19 @@ tasks.register('docs', Exec) {
     dependsOn   installDeps
 }
 
+// ── Metrics ────────────────────────────────────────────────────────────────
+tasks.register('metrics', Exec) {
+    group       = 'metrics'
+    description = 'Cyclomatic complexity + maintainability index with radon'
+    outputs.files 'docs/metrics/complexity.txt', 'docs/metrics/maintainability.txt'
+    commandLine 'sh', '-c',
+        "${python} -m radon cc *.py -s -a | tee docs/metrics/complexity.txt && " +
+        "echo '--- Maintainability Index ---' && " +
+        "${python} -m radon mi *.py -s | tee docs/metrics/maintainability.txt"
+    workingDir  projectDir
+    dependsOn   installDeps
+}
+
 // ── Lifecycle wiring ────────────────────────────────────────────────────────
 tasks.named('check') {
     dependsOn 'test', 'lint'
