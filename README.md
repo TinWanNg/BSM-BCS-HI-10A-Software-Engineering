@@ -39,6 +39,9 @@ all pngs could be found in [/04_UML](https://github.com/TinWanNg/BSM-BCS-HI-10A-
 - explanation in 13c's README's [Testing section](https://github.com/TinWanNg/BSM-BCS-HI-10A-Software-Engineering/tree/main/13c_distributed/README.md)
 
 9. Build
+- done in the distributed secure messenger app in 13c
+- build file [/here](https://github.com/TinWanNg/BSM-BCS-HI-10A-Software-Engineering/tree/main/13c_distributed/build.gradle)
+- explanation in 13c's README's [Build section](https://github.com/TinWanNg/BSM-BCS-HI-10A-Software-Engineering/tree/main/13c_distributed/README.md)
 
 10. Continuous delivery implemented in [/10_continuous-delivery/pipeline.yml](https://github.com/TinWanNg/BSM-BCS-HI-10A-Software-Engineering/tree/main/10_continuous-delivery/pipeline.yml)
 - this is an actual pipeline from a software, with sensitive variable names renamed.

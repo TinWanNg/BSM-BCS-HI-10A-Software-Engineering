@@ -25,7 +25,9 @@ import json
 import websockets
 
 import protocol as P
-from crypto_utils import decrypt, encrypt, generate_key_pair, serialize_public_key, deserialize_public_key
+from crypto_utils import (
+    decrypt, encrypt, generate_key_pair, serialize_public_key, deserialize_public_key
+)
 
 DEFAULT_SERVER = "ws://localhost:8765"
 
@@ -149,7 +151,7 @@ async def run(username: str, register: bool, server_url: str):
     password = getpass.getpass(f"Password for '{username}': ")
 
     private_key, public_key = generate_key_pair()
-    print(f"[+] RSA-2048 key pair generated")
+    print("[+] RSA-2048 key pair generated")
     print(f"[+] Connecting to {server_url} ...")
 
     async with websockets.connect(server_url) as ws:

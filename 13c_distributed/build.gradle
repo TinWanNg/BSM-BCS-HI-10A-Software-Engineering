@@ -1,0 +1,84 @@
+/**
+ * Gradle build for secure-messenger (Python project).
+ *
+ * Tasks:
+ *   ./gradlew test     — run pytest suite
+ *   ./gradlew docs     — generate HTML docs with pdoc
+ *   ./gradlew lint     — check code style with flake8
+ *   ./gradlew build    — test + docs (full build)
+ *   ./gradlew check    — test + lint
+ *   ./gradlew clean    — remove generated docs and __pycache__
+ */
+
+plugins {
+    id 'base'   // provides the lifecycle tasks: clean, check, build, assemble
+}
+
+// Detect the correct Python executable (venv > system)
+def python = {
+    def venv = file("${System.getenv('VIRTUAL_ENV')}/bin/python")
+    venv.exists() ? venv.absolutePath : 'python3'
+}()
+
+def srcFiles = fileTree('.') {
+    include '*.py'
+    exclude 'tests/**'
+}
+
+// ── Clean ──────────────────────────────────────────────────────────────────
+clean {
+    delete 'docs/html'
+    delete fileTree('.') {
+        include '**/__pycache__'
+        include '**/*.pyc'
+        include '**/*.pyo'
+    }
+}
+
+// ── Dependencies ────────────────────────────────────────────────────────────
+tasks.register('installDeps', Exec) {
+    group       = 'setup'
+    description = 'Install Python dependencies from requirements.txt'
+    commandLine python, '-m', 'pip', 'install', '-q', '-r', 'requirements.txt'
+    workingDir  projectDir
+}
+
+// ── Lint ───────────────────────────────────────────────────────────────────
+tasks.register('lint', Exec) {
+    group       = 'verification'
+    description = 'Lint source files with flake8 (max line length 100)'
+    commandLine python, '-m', 'flake8', '--max-line-length=100',
+                '--exclude=tests', '.'
+    workingDir  projectDir
+    dependsOn   installDeps
+}
+
+// ── Test ───────────────────────────────────────────────────────────────────
+tasks.register('test', Exec) {
+    group       = 'verification'
+    description = 'Run pytest test suite'
+    commandLine python, '-m', 'pytest', '--tb=short', '-q'
+    workingDir  projectDir
+    dependsOn   installDeps
+}
+
+// ── Docs ───────────────────────────────────────────────────────────────────
+tasks.register('docs', Exec) {
+    group       = 'documentation'
+    description = 'Generate HTML documentation with pdoc'
+    outputs.dir 'docs/html'
+    commandLine python, '-m', 'pdoc',
+                '--output-dir', 'docs/html',
+                'auth', 'store', 'protocol', 'crypto_utils', 'client', 'server'
+    workingDir  projectDir
+    dependsOn   installDeps
+}
+
+// ── Lifecycle wiring ────────────────────────────────────────────────────────
+tasks.named('check') {
+    dependsOn 'test', 'lint'
+}
+
+tasks.named('build') {
+    dependsOn 'check', 'docs'
+}

@@ -99,6 +99,7 @@ Bob's terminal will show:
 
 ---
 
+
 ## Testing
 
 Install dependencies then run all tests from the `13c_distributed/` folder:
@@ -149,3 +150,33 @@ class MockWebSocket:
         if item is None: raise StopAsyncIteration
         return json.dumps(item)
 ```
+
+## Build (Gradle)
+
+The project uses **Gradle 9** as its build system. Gradle is not Python-native — it normally builds Java/Kotlin projects — so all tasks use `Exec` to shell out to Python. This is intentional: it shows how a general-purpose build tool can manage any language.
+
+### Tasks
+
+| Command | What it does |
+|---|---|
+| `gradle build` | Full build: lint → test → docs |
+| `gradle test` | Run all 28 pytest tests |
+| `gradle lint` | Check style with flake8 |
+| `gradle docs` | Generate HTML docs into `docs/html/` with pdoc |
+| `gradle clean` | Delete `docs/html/` and all `__pycache__` |
+| `gradle installDeps` | `pip install -r requirements.txt` |
+
+```bash
+# One command to do everything:
+gradle build
+```
+
+### Failure & fix -- lint errors in source code
+```
+./client.py:28:101: E501 line too long (106 > 100 characters)
+./client.py:152:11: F541 f-string is missing placeholders
+./server.py:132:101: E501 line too long (104 > 100 characters)
+```
+`F541` was a genuine bug — `f"[+] RSA-2048 key pair generated"` had an `f` prefix but no `{}` inside. Fixed the long lines and removed the useless `f`. The `E221` (column alignment) errors were intentional style choices, so those were suppressed in `.flake8` with a comment explaining why.
+
+---

@@ -129,7 +129,8 @@ async def handle(ws: WebSocketServerProtocol):
                 target = data.get("target", "")
                 user = store.get_user(target)
                 if user:
-                    await _send(ws, type=P.S_PUBLIC_KEY, username=target, public_key=user["public_key"])
+                    await _send(ws, type=P.S_PUBLIC_KEY,
+                                username=target, public_key=user["public_key"])
                 else:
                     await _send(ws, type=P.S_ERROR, message=f"User '{target}' not found")
 
